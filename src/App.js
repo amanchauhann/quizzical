@@ -1,23 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import Quiz from './Quiz.js'
+import { useState } from 'react';
 
 function App() {
+  const[isStart, setIsStart] = useState(false)
+
+  const startQuiz = () => setIsStart(true)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {!isStart && <div>
+        <h1>Quizzical</h1>
+        <button onClick={startQuiz}>Start Quiz</button>
+      </div>}
+      
+      {isStart && <Quiz />}
     </div>
   );
 }
