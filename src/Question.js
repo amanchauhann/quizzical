@@ -6,7 +6,7 @@ function Question(props) {
     // this is array for putting all the options
     let randomOption = [];
     for(let i=0; i<3; i++){
-        randomOption.push(<button className='answer'>{props.incorrect_answers}</button>)
+        randomOption.push(<button className='answer'>{props.incorrect_answers[i]}</button>)
     }
     randomOption.push(<button className='answer'>{props.correct_answer}</button>)
 

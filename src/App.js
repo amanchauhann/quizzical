@@ -15,7 +15,7 @@ function App() {
         <button onClick={startQuiz}>Start Quiz</button>
       </div>}
       
-      {isStart && <Quiz />}
+      {!isStart && <Quiz />}
     </div>
   );
 }
