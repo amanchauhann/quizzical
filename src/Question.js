@@ -9,13 +9,17 @@ function Question(props) {
         console.log(isHeld)
     }
 
+    const styles = {
+        backgroundColor: isHeld ? "green" : "transparent"
+    }
+
     // this is array for putting all the options
     let randomOption = [];
     
     for(let i=0; i<3; i++){
-        randomOption.push(<button className='answer' onClick={selectOption}>{props.incorrect_answers[i]}</button>)
+        randomOption.push(<button className='answer' onClick={selectOption} style={styles} >{props.incorrect_answers[i]}</button>)
     }
-    randomOption.push(<button className='answer' onClick={selectOption} style={{backgroundColor: "green"}}>{props.correct_answer}</button>)
+    randomOption.push(<button className='answer' onClick={selectOption} style={styles} >{props.correct_answer}</button>)
 
     useEffect(()=>{
         let i = randomOption.length, j, temp
