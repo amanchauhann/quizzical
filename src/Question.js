@@ -17,7 +17,7 @@ function Question(props) {
     let randomOption = [];
     
     for(let i=0; i<3; i++){
-        randomOption.push(<button className='answer' onClick={props.selectOption} >{props.incorrect_answers[i]}</button>)
+        randomOption.push(<button className='answer' onClick={props.selectOption} style={styles}>{props.incorrect_answers[i]}</button>)
     }
     randomOption.push(<button className='answer' onClick={props.selectOption} style={styles} >{props.correct_answer}</button>)
 
