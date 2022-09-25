@@ -4,6 +4,12 @@ import Question from './Question.js'
 
 function Quiz() {
     const [questionData, setQuestionData] = useState([])
+    const [isHeld, setIsHeld] = useState(false)
+
+    function selectOption() {
+        setIsHeld((prevIsHeld) => !prevIsHeld)
+        console.log(isHeld)
+    }
 
     useEffect(()=>{
         fetch("https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple")
@@ -20,6 +26,7 @@ function Quiz() {
             questionData.map((item, i)=>{
                 return (
                     <Question key={i}
+                        selectOption={selectOption}
                         {...item}
                     />
                 )
