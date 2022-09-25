@@ -1,31 +1,30 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Question from './Question.js'
 
 
 function Quiz() {
-    let questions;
+    const [questionData, setQuestionData] = useState([])
 
     useEffect(()=>{
         fetch("https://opentdb.com/api.php?amount=5&category=9&difficulty=easy&type=multiple")
             .then(res=> res.json())
             .then(data => {
-                console.log(data.results)
-                const d = data.results
-                    questions = d.map(item => {
-                    return (
-                        <Question
-                            {...item}
-                        />
-                    )
-                })
+                setQuestionData(data.results)
             })
-            console.log("render")
-    })
+    }, [])
 
 
   return (
     <div>
-        {questions}
+        {
+            questionData.map((item, i)=>{
+                return (
+                    <Question key={i}
+                        {...item}
+                    />
+                )
+            })
+        }
     </div>
   )
 }

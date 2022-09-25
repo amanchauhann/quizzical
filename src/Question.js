@@ -8,7 +8,7 @@ function Question(props) {
     for(let i=0; i<3; i++){
         randomOption.push(<button className='answer'>{props.incorrect_answers[i]}</button>)
     }
-    randomOption.push(<button className='answer'>{props.correct_answer}</button>)
+    randomOption.push(<button className='answer' style={{backgroundColor: "green"}}>{props.correct_answer}</button>)
 
     // Fisher-Yates Shuffle Modern Algorithm for random options for answers.
     let i = randomOption.length, j, temp
